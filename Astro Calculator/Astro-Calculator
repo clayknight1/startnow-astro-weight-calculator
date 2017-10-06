@@ -1,0 +1,42 @@
+// Write your JavaScript code here!
+// Write your JavaScript code here!
+var planets = [
+   [‘Pluto’, 0.06],
+   [‘Neptune’, 1.148],
+   [‘Uranus’, 0.917],
+   [‘Saturn’, 1.139],
+   [‘Jupiter’, 2.640],
+   [‘Mars’, 0.3895],
+   [‘Moon’, 0.1655],
+   [‘Earth’, 1],
+   [‘Venus’, 0.9032],
+   [‘Mercury’, 0.377],
+   [‘Sun’, 27.9]
+ ]; 
+ $.each(planets, function(entry, value) {
+   
+      $(‘#planets’)
+           .append($(‘<option></option>‘)
+           .attr (“value”, value[0])
+           .text(value[0]));
+ });
+ 
+function calculateWeight(weight, planetName) {
+   for(let i = 0; i < planets.length; i++){
+     if (planets[i][0] == planetName){
+       return weight*planets[i][1]
+     }
+   }
+ }
+ 
+ function handleClickEvent(e) {
+   const userWeight = $(“#user-weight”).val();
+   const planetName = $(“#planets”)
+                   .find(“:selected”)
+                   .text();
+   
+   const result = calculateWeight(userWeight, planetName);
+   
+   $(“#output”).text(“If you were on ” + planetName + “, you would weigh ” + result + “lbs!“)
+   
+   $(“#calculate-button”).click(handleClickEvent);

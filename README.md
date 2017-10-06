@@ -1,0 +1,1 @@
+This is a Javascript app that calculates how much you would weigh if you were on a different planet. You can select from any planet in the drop down and add  your weight and it will do the rest. Everything you need is in the folder.
